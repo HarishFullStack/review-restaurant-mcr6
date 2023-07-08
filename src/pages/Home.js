@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import {cuisineData, restaurantsData} from '../db/data';
+import { useNavigate } from 'react-router';
 
 export function Home(){
+    const navigate = useNavigate();
 
     const [restaurants, setRestaurants] = useState([]);
 
@@ -22,7 +24,7 @@ export function Home(){
             {restaurants.map((x) => {
                 return(
                     <div className='restaurants'>
-                        <h5>Dishes by <a href={`/details/${x.id}`}>{x.name}</a></h5>
+                        <h5>Dishes by<span className='restaurant-name' onClick={() => navigate(`/details/${x.id}`)}>{x.name}</span></h5>
                         <div className='row'>
                             {x.menu.map((y) => {
                                 return(
