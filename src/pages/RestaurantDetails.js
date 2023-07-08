@@ -15,6 +15,7 @@ export function RetaurantDetails(){
 
     useEffect(() => {
         getRestaurants();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
 
